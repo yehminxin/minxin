@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yeh, Min-Xin Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* 全網頁基礎設定 */
+      body {
+        font-family: "Noto Serif TC", serif;
+        font-weight: 500;
+        line-height: 1.8;
+        margin: 0; 
+        padding: 40px;
+        background-color: #cdcdcd; 
+        color: #222; 
+        -webkit-font-smoothing: antialiased;
+      }
+      hr {
+        border: none;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          #484848,
+          transparent
+        );
+      }
+      /*卡片設定*/
+      .work-card {
+        text-decoration: none;
+        color: #222; 
+        flex: 0 0 400px; /* 卡片寬度 */
+        background: transparent; 
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        border-radius: 5px; /* 圓角 */
+        overflow: hidden; 
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06); 
+        transition: 0.25s; /* 滑鼠動畫 */
+        display: block;
+        position: relative;
+        aspect-ratio: 3 / 2;
+      }
+
+      /*卡片浮起動畫*/
+      .work-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .work-card__image {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+      }
+
+      .work-card__image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(214, 214, 214, 0);
+        transition: 0.25s ease;
+        pointer-events: none;
+      }
+
+      /*圖片大小*/
+      .work-card img {
+        display: block;
+        width: 100%; 
+        height: 100%; 
+        object-fit: cover; 
+        transition: 0.25s ease;
+      }
+
+      .work-card__title-overlay {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        color: #ffffff;
+        font-size: 0.95rem;
+        letter-spacing: 0.14em;
+        opacity: 0;
+        transform: translateY(6px);
+        transition: 0.25s ease;
+        pointer-events: none;
+        background: rgba(0, 0, 0, 0.4);
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+      }
+
+      .work-card__meta {
+        position: absolute;
+        bottom: 2px;
+        left: 8px;
+        background: transparent;
+        padding: 0;
+        font-size: 0.8rem;
+        color: #ffffff;
+        letter-spacing: 0.04em;
+        text-shadow:
+          0 1px 3px rgba(0, 0, 0, 0.8),
+          0 -1px 3px rgba(0, 0, 0, 0.8),
+          1px 0 3px rgba(0, 0, 0, 0.8),
+          -1px 0 3px rgba(0, 0, 0, 0.8),
+          1px 1px 4px rgba(0, 0, 0, 0.9);
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      .work-card:hover .work-card__image::after {
+        background: rgba(214, 214, 214, 0.34);
+      }
+
+      .work-card:hover img {
+        filter: saturate(0.45) brightness(0.95);
+      }
+
+      .work-card:hover .work-card__title-overlay {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .card-container {
+        display: flex; /* Flexbox */
+        flex-wrap: wrap; /* 超過螢幕寬度自動換行 */
+        gap: 28px; /* 卡片之間間距 */
+        justify-content: flex-start; /* 卡片靠左對齊*/
+      }
+      .card-container + .card-container {
+        margin-top: 36px; /* 兩組卡片之間的垂直間距 */
+      }
+      section {
+        max-width: 1300px; 
+        margin: 0 auto; 
+      }
+
+      header {
+        max-width: 1250px; 
+        margin: 0 auto 40px auto; 
+      }
+      /* 1. 英文名字大小與顏色 */
+      .my-name {
+        font-size: 2.5rem; 
+        color: #1a1a1a; 
+        margin-bottom: 10px;
+        line-height: 1.2; /* 行高 */
+      }
+
+      /* 2. 調整中文名字的大小與顏色 */
+      .chinese-name {
+        font-size: 1.1rem; 
+        color: #5c5c5c; 
+        font-weight: normal; 
+        letter-spacing: 2px; 
+      }
+
+      /* 3.自我介紹 */
+      .my-intro {
+        font-size: 1rem; 
+        color: #333; 
+        line-height: 1.8; 
+      }
+
+      /* 手機版*/
+      @media (max-width: 768px) {
+        body {
+          padding: 20px;
+        }
+        header {
+          max-width: 100%;
+          margin: 0 0 30px 0;
+        }
+        .my-name {
+          font-size: 1.8rem;
+        }
+        .my-intro {
+          font-size: 0.95rem;
+        }
+        section {
+          max-width: 100%;
+          margin: 0;
+        }
+        .card-container {
+          gap: 16px;
+          flex-wrap: wrap;
+        }
+        .card-container + .card-container {
+          margin-top: 16px;
+        }
+        .work-card {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 class="my-name">
+        yeh,min-xin
+        <span class="chinese-name">葉忞昕</span>
+      </h1>
+      <p class="my-intro">
+        出生於2005年。<br />
+        關注機器感知、身體經驗與詩性想像。創作中思考科技如何模擬人類的感官與生理反應，並將其轉化為可被體驗的藝術語言。
+      </p>
+    </header>
+
+    <hr />
+    <section>
+      <h3>WORK</h3>
+      <div class="card-container">
+        <a href="lingering_farewell.html" class="work-card">
+          <div class="work-card__image">
+            <img src="img/lingering_farewell001.JPG" alt="LINGERING FAREWELL" />
+            <div class="work-card__title-overlay">依依</div>
+          </div>
+          <div class="work-card__meta">2026 / 動力裝置</div>
+        </a>
+        <a href="unfolded-time.html" class="work-card">
+          <div class="work-card__image">
+            <img src="img/unfoled_time02.jpg" alt="UNFOLDED TIME" />
+            <div class="work-card__title-overlay">時間的剖面</div>
+          </div>
+          <div class="work-card__meta">2025 / 動力裝置</div>
+        </a>
+        <a href="betweenthebreath.html" class="work-card">
+          <div class="work-card__image">
+            <img src="img/between_the_breath.jpg" alt="BETWEEN THE BREATH" />
+            <div class="work-card__title-overlay">呼吸之間</div>
+          </div>
+          <div class="work-card__meta">2025 / 穿戴裝置</div>
+        </a>
+        <a href="unnatural_metabolism.html" class="work-card">
+          <div class="work-card__image">
+            <img src="img/unnatural_metabolism.png" alt="UNNATURAL METABOLISM" />
+            <div class="work-card__title-overlay">非自然代謝</div>
+          </div>
+          <div class="work-card__meta">2024 / 動力雕塑</div>
+        </a>
+      </div>
+      <!-- <h3>IN PROGRESS</h3> -->
+      
+    </section>
+  </body>
+</html>
