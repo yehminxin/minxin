@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BETWEEN THE BREATH - Yeh, Min-Xin</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* 全網頁基礎設定 */
+      body {
+        font-family: "Noto Serif TC", serif;
+        font-weight: 300;
+        line-height: 1.8;
+        margin: 0;
+        background-color: #cdcdcd;
+        color: #171717;
+      }
+
+      /* 導覽列 */
+      nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 40px 40px 10px;
+        box-sizing: border-box;
+        text-align: left;
+      }
+      nav a {
+        text-decoration: none;
+        color: #3c3c3c;
+        font-size: 1rem;
+      }
+
+      /* 大卡片容器 */
+      .main-container {
+        max-width: 1200px;
+        margin: 0 auto 40px auto;
+        background: #d0d0d0;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      }
+
+      /* 作品標題區 */
+      .content-header {
+        padding: 40px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+      .work-detail-title {
+        font-size: 2rem;
+        margin: 0 0 10px 0;
+      }
+      .work-detail-title + p {
+        margin: 5px 0;
+        color: #464646;
+      }
+
+      /* 主內容區域 - 三列布局 */
+      .work-main-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+          "video video"
+          "text image";
+        gap: 20px;
+        padding: 40px;
+        align-items: start;
+      }
+
+      /* YT縮圖區 */
+      .video-column {
+        grid-area: video;
+      }
+
+      .video-container {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        border-radius: 5px;
+      }
+
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .work-info {
+        font-size: 0.8rem;
+        color: #464646;
+        letter-spacing: 0.5px;
+        line-height: 1.6;
+        margin-top: 15px;
+        margin-bottom: 20px;
+      }
+
+      /* 文字說明區 */
+      .text-column {
+        min-width: 0;
+        grid-area: text;
+      }
+
+      .article-body {
+        font-size: 0.95rem;
+        color: #333;
+      }
+
+      .article-body h4 {
+        font-weight: 500;
+        font-size: 1rem;
+        margin: 0 0 10px 0;
+        border-left: 3px solid #171717;
+        padding-left: 12px;
+      }
+
+      .article-body p {
+        margin: 10px 0;
+      }
+
+      /* 主要照片區 */
+      .main-image-column {
+        display: flex;
+        flex-direction: column;
+        grid-area: image;
+        gap: 20px;
+      }
+
+      .main-image {
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      /* 其他照片網格 */
+      .gallery-section {
+        padding: 40px;
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .gallery-item {
+        aspect-ratio: 3 / 2;
+        overflow: hidden;
+        border-radius: 5px;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* 響應式設計 */
+      @media (max-width: 1024px) {
+        nav {
+          padding: 20px;
+        }
+        .main-container {
+          margin: 0 20px 40px 20px;
+        }
+        .content-header,
+        .work-main-content,
+        .gallery-section {
+          padding: 20px;
+        }
+        .work-main-content {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "video"
+            "image"
+            "text";
+        }
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html">← HOME</a>
+    </nav>
+
+    <div class="main-container">
+      <header class="content-header">
+        <h1 class="work-detail-title">BETWEEN THE BREATH</h1>
+        <p>呼吸之間</p>
+        <p>2025 / Wearable installation 穿戴裝置</p>
+      </header>
+
+      <div class="work-main-content">
+        <!-- 左列：YT縮圖 + 媒材資訊 -->
+        <div class="video-column">
+          <div class="video-container">
+            <iframe
+              src="https://www.youtube.com/embed/7m9wrntgyiY"
+              title="YouTube video player"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="work-info">
+            媒材（Medium）：TPU、矽膠、微控制器、燈光裝置 <br>
+            時長（Duration）：觸發後體驗時間1:15
+          </div>
+        </div>
+
+        <!-- 中列：文字說明 -->
+        <div class="text-column">
+          <main class="article-body">
+            <h4>創作理念</h4>
+            <p>
+              作品透過穿戴裝置產生生理壓迫，模擬兩人關係中的情緒張力。
+            </p>
+            <p>
+              配戴裝置後，需同時觸發互動，作品啟動，燈光關閉。頸部裝置以節奏性的壓迫營造緊迫感，生理的不適逐漸累積。<br />
+              無論你們是戀人、親人、朋友，或是陌生人。黑暗中，這段共處的時刻是否喚起那些令人窒息的情感時刻?
+            <p>
+              呼吸之間，你在這場關係中感受到甚麼
+            </p>
+            <p>
+              本作試圖以穿戴裝置引發生理感受，進而調動觀者心理經驗。<br />
+              以「被影響的身體」作為感知載體，探索兩人之間不可見的聯繫。
+            </p>
+          </main>
+          <br />
+          <main class="article-body">
+            <h4>特別感謝</h4>
+            <p>
+              布展協力:陳品蓁、陳智賢、凌歆慧。<br />
+              作品紀錄拍攝:吳峻宇、顏彤軒。
+            </p>
+          </main>
+        </div>
+
+        <!-- 右列：主要照片 -->
+        <div class="main-image-column">
+          <img
+            src="img/between_the_breath.jpg"
+            alt="呼吸之間主圖"
+            class="main-image"
+          />
+        </div>
+      </div>
+
+      <!-- 其他照片網格 -->
+      <div class="gallery-section">
+        <h4
+          style="
+            margin-top: 0;
+            border-left: 3px solid #171717;
+            padding-left: 12px;
+          "
+        >
+          作品照片
+        </h4>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="img/between_the_breath01.png" alt="作品照片1" />
+          </div>
+          <div class="gallery-item">
+            <img src="img/between_the_breath02.png" alt="作品照片2" />
+          </div>
+          <div class="gallery-item">
+            <img src="img/between_the_breath03.jpg" alt="作品照片3" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
