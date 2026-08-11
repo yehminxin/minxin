@@ -149,8 +149,15 @@
       .my-name {
         font-size: 2.5rem; 
         color: #1a1a1a; 
-        margin-bottom: 10px;
+        margin-bottom: 8px;
         line-height: 1.2; /* 行高 */
+      }
+
+      .my-intro {
+        font-size: 0.95rem;
+        color: #333;
+        line-height: 1.7;
+        margin: 0 0 8px 0;
       }
 
       /* 2. 調整中文名字的大小與顏色 */
@@ -161,11 +168,30 @@
         letter-spacing: 2px; 
       }
 
-      /* 3.自我介紹 */
-      .my-intro {
-        font-size: 1rem; 
-        color: #333; 
-        line-height: 1.8; 
+      .section-nav {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+
+      .section-nav__link {
+        text-decoration: none;
+        color: #4f4f4f;
+        font-size: 1.1rem;
+        letter-spacing: 0.16em;
+        transition: color 0.2s ease;
+      }
+
+      .section-nav__link.active {
+        color: #111111;
+        font-weight: 700;
+      }
+
+      .section-nav__divider {
+        width: 1px;
+        height: 16px;
+        background: rgba(0, 0, 0, 0.35);
       }
 
       /* 手機版*/
@@ -208,14 +234,19 @@
         <span class="chinese-name">葉忞昕</span>
       </h1>
       <p class="my-intro">
-        出生於2005年。<br />
+        出生於2005年。
+        <br>
         關注機器感知、身體經驗與詩性想像。創作中思考科技如何模擬人類的感官與生理反應，並將其轉化為可被體驗的藝術語言。
       </p>
     </header>
 
     <hr />
     <section>
-      <h3>WORK</h3>
+      <div class="section-nav" role="navigation" aria-label="Section navigation">
+        <a class="section-nav__link active" href="index.html">WORK</a>
+        <span class="section-nav__divider" aria-hidden="true"></span>
+        <a class="section-nav__link" href="about_me.html">ABOUT ME</a>
+      </div>
       <div class="card-container">
         <a href="lingering_farewell.html" class="work-card">
           <div class="work-card__image">
